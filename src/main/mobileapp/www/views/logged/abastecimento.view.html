@@ -1,0 +1,92 @@
+<ion-view cache-view="false" view-title="Abastecimento" hide-back-button="true">
+  <ion-nav-buttons side="right">
+    <button class="button button-stable" ng-hide="Abastecimento.inserting || Abastecimento.editing" ng-click="Abastecimento.startInserting()"> <i class="icon ion-plus-round"></i> </button>
+    <button class="button button-stable" ng-show="Abastecimento.inserting || Abastecimento.editing" ng-click="Abastecimento.post()"> <i class="icon ion-checkmark"></i> </button>
+  </ion-nav-buttons>
+  <ion-nav-buttons side="left">
+    <button class="button button-icon button-clear ion-navicon" ng-hide="Abastecimento.inserting || Abastecimento.editing" menu-toggle="left"> </button>
+    <button class="button button-stable" ng-show="Abastecimento.inserting || Abastecimento.editing" ng-click="Abastecimento.cancel()"> <i class="icon ion-android-arrow-back"></i> </button>
+  </ion-nav-buttons>
+  <ion-content>
+    <div class="component-holder ng-binding ng-scope ui-draggable ui-draggable-handle" data-component="crn-datasource" id="crn-datasource-906854">
+      <datasource name="Abastecimento" entity="api/cronapi/crud/app.entity.Abastecimento" keys="id" rows-per-page="100" delete-message="Deseja remover?" class=""></datasource>
+    </div>
+    <div crn-datasource="Abastecimento" class="" ng-hide="Abastecimento.editing || Abastecimento.inserting">
+      <ion-list can-swipe="listCanSwipe">
+        <ion-item ng-repeat="rowData in datasource.data" class="item" ng-click="datasource.startEditing(rowData)">
+          <div class="row">
+            
+            
+            
+            
+            
+            
+            
+          </div><ion-item class="item dark component-holder col" xattr-theme="dark" data-replace="false" data-component="crn-list-item" id="crn-list-item-442276"><h1 data-component="crn-heading" class="component-holder" id="crn-heading-66045">{{rowData.posto.nome}}</h1><h2 xattr-position="text-left" class="component-holder text-left" data-component="crn-label" id="crn-label-947682">{{rowData.data | date:'dd/MM/yyyy HH:mm:ss'}}</h2><a href="#/app/logged/avaliacao?abastecimento={{rowData.id}}" class="component-holder" target="_self" onclick="" style="display:block" xattr-fullsize="display:block;" data-replace="false" data-component="crn-anchor" id="crn-anchor-271008"><button class="button component-holder button-small button-clear button-balanced" type="submit" ng-click="" data-component="crn-button" id="crn-button-978840" xattr-size="button-small" xattr-type="button-clear" xattr-theme="button-balanced"><i class="ion ion-android-done"></i> <span>Avaliar</span></button></a></ion-item><div class="row">
+            
+            
+            
+            
+            
+            
+            
+          </div>
+          <ion-option-button class="button-positive" ng-click="datasource.startEditing(rowData)">
+            <i class="icon ion ion-edit"></i>
+          </ion-option-button>
+          <ion-option-button class="button-assertive" ng-click="datasource.remove(rowData)">
+            &nbsp;
+            <i class="icon ion-trash-a"></i>
+          </ion-option-button>
+        </ion-item>
+      </ion-list>
+    </div>
+    <div ng-show="Abastecimento.editing || Abastecimento.inserting">
+      <form crn-datasource="Abastecimento">
+        <fieldset ng-disabled="!datasource.editing &amp;&amp; !datasource.inserting">
+          <div class="list">
+            <!-- data begin -->
+            <label for="textinput-data" class="item item-input item-stacked-label">
+            <span class="input-label">Data</span>
+            <input type="time" placeholder="Data" ng-model="Abastecimento.active.data" id="textinput-data" name="textinput-data">
+            </label>
+            <!-- km begin -->
+            <label for="textinput-km" class="item item-input item-stacked-label">
+            <span class="input-label">Km</span>
+            <input type="text" placeholder="Km" ng-model="Abastecimento.active.km" id="textinput-km" name="textinput-km">
+            </label>
+            <!-- valorAbastecimento begin -->
+            <label for="textinput-valorAbastecimento" class="item item-input item-stacked-label">
+            <span class="input-label">Valor Abastecimento</span>
+            <input type="text" placeholder="Valor Abastecimento" ng-model="Abastecimento.active.valorAbastecimento" id="textinput-valorAbastecimento" name="textinput-valorAbastecimento">
+            </label>
+            <!-- precoLitro begin -->
+            <label for="textinput-precoLitro" class="item item-input item-stacked-label">
+            <span class="input-label">Preco Litro</span>
+            <input type="text" placeholder="Preco Litro" ng-model="Abastecimento.active.precoLitro" id="textinput-precoLitro" name="textinput-precoLitro">
+            </label>
+            <!-- carro begin -->
+            <datasource name="Carro" entity="api/cronapi/crud/app.entity.Carro" keys="id" class=""></datasource>
+            <label for="textinput-carro" class="item item-input item-select">
+              <span class="input-label">carro</span>
+              <select ng-model="Abastecimento.active.carro" class="form-control" id="textinput-carro" name="textinput-carro" ng-options="opt as opt.placa for opt in Carro.data track by opt.id">
+              <option value="">None</option>
+              </select>
+            </label>
+            <!-- posto begin -->
+            <datasource name="Posto" entity="api/cronapi/crud/app.entity.Posto" keys="id" class=""></datasource>
+            <label for="textinput-posto" class="item item-input item-select">
+              <span class="input-label">posto</span>
+              <select ng-model="Abastecimento.active.posto" class="form-control" id="textinput-posto" name="textinput-posto" ng-options="opt as opt.nome for opt in Posto.data track by opt.id">
+              <option value="">None</option>
+              </select>
+            </label>
+            <!-- avaliacao begin -->
+            <datasource name="Avaliacao" entity="api/cronapi/crud/app.entity.Avaliacao" keys="id" class=""></datasource>
+            
+          </div>
+        </fieldset>
+      </form>
+    </div>
+  </ion-content>
+</ion-view>

@@ -1,0 +1,131 @@
+<ion-view cache-view="false" view-title="Posto" hide-back-button="true">
+  <ion-nav-buttons side="right">
+    <button class="button button-stable" ng-hide="Posto.inserting || Posto.editing" ng-click="Posto.startInserting()"> <i class="icon ion-plus-round"></i> </button>
+    <button class="button button-stable" ng-show="Posto.inserting || Posto.editing" ng-click="Posto.post()"> <i class="icon ion-checkmark"></i> </button>
+  </ion-nav-buttons>
+  <ion-nav-buttons side="left">
+    <button class="button button-icon button-clear ion-navicon" ng-hide="Posto.inserting || Posto.editing" menu-toggle="left"> </button>
+    <button class="button button-stable" ng-show="Posto.inserting || Posto.editing" ng-click="Posto.cancel()"> <i class="icon ion-android-arrow-back"></i> </button>
+  </ion-nav-buttons>
+  <ion-content>
+    <div class="component-holder ng-binding ng-scope ui-draggable ui-draggable-handle" data-component="crn-datasource" id="crn-datasource-906854">
+      <datasource  name="Posto" entity="api/cronapi/crud/app.entity.Posto" keys="id" rows-per-page="100" delete-message="Deseja remover?" class=""></datasource>
+    </div>
+    <div crn-datasource="Posto" class="" ng-hide="Posto.editing || Posto.inserting">
+      <ion-list can-swipe="listCanSwipe">
+        <ion-item ng-repeat="rowData in datasource.data" class="item" ng-click="datasource.startEditing(rowData)">
+          <div class="row">
+            <div class="col">
+              {{rowData.nome}}
+            </div>
+            <div class="col">
+              {{rowData.cep}}
+            </div>
+            <div class="col">
+              {{rowData.logradouro}}
+            </div>
+            <div class="col">
+              {{rowData.numero}}
+            </div>
+            <div class="col">
+              {{rowData.bairro}}
+            </div>
+            <div class="col">
+              {{rowData.cidade}}
+            </div>
+            <div class="col">
+              {{rowData.uf}}
+            </div>
+          </div>
+          <ion-option-button class="button-positive" ng-click="datasource.startEditing(rowData)">
+            <i class="icon ion-edit"></i>
+          </ion-option-button>
+          <ion-option-button class="button-assertive" ng-click="datasource.remove(rowData)">
+            &nbsp;
+            <i class="icon ion-trash-a"></i>
+          </ion-option-button>
+        </ion-item>
+      </ion-list>
+    </div>
+    <div ng-show="Posto.editing || Posto.inserting">
+      <form crn-datasource="Posto">
+        <fieldset ng-disabled="!datasource.editing &amp;&amp; !datasource.inserting">
+          <div class="list">
+            <!-- nome begin -->
+            <label for="textinput-nome" class="item item-input item-stacked-label">
+            <span class="input-label">Nome</span>
+            <input
+            type="text"
+            placeholder="Nome"
+            ng-model="Posto.active.nome"
+            id="textinput-nome"
+            name="textinput-nome"
+            >
+            </label>
+            <!-- cep begin -->
+            <label for="textinput-cep" class="item item-input item-stacked-label">
+            <span class="input-label">Cep</span>
+            <input
+            type="text"
+            placeholder="Cep"
+            ng-model="Posto.active.cep"
+            id="textinput-cep"
+            name="textinput-cep"
+            mask="99.999-999"
+            >
+            </label>
+            <!-- logradouro begin -->
+            <label for="textinput-logradouro" class="item item-input item-stacked-label">
+            <span class="input-label">Logradouro</span>
+            <input
+            type="text"
+            placeholder="Logradouro"
+            ng-model="Posto.active.logradouro"
+            id="textinput-logradouro"
+            name="textinput-logradouro"
+            >
+            </label>
+            <!-- numero begin -->
+            <label for="textinput-numero" class="item item-input item-stacked-label">
+            <span class="input-label">Numero</span>
+            <input type="number" ng-model="Posto.active.numero" class="" id="textinput-numero" name="textinput-numero" placeholder="Numero" >
+            </label>
+            <!-- bairro begin -->
+            <label for="textinput-bairro" class="item item-input item-stacked-label">
+            <span class="input-label">Bairro</span>
+            <input
+            type="text"
+            placeholder="Bairro"
+            ng-model="Posto.active.bairro"
+            id="textinput-bairro"
+            name="textinput-bairro"
+            >
+            </label>
+            <!-- cidade begin -->
+            <label for="textinput-cidade" class="item item-input item-stacked-label">
+            <span class="input-label">Cidade</span>
+            <input
+            type="text"
+            placeholder="Cidade"
+            ng-model="Posto.active.cidade"
+            id="textinput-cidade"
+            name="textinput-cidade"
+            >
+            </label>
+            <!-- uf begin -->
+            <label for="textinput-uf" class="item item-input item-stacked-label">
+            <span class="input-label">UF</span>
+            <input
+            type="text"
+            placeholder="UF"
+            ng-model="Posto.active.uf"
+            id="textinput-uf"
+            name="textinput-uf"
+            >
+            </label>
+          </div>
+        </fieldset>
+      </form>
+    </div>
+  </ion-content>
+</ion-view>
