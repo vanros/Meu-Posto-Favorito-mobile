@@ -163,12 +163,12 @@
         <dependency>
             <groupId>io.cronapp</groupId>
             <artifactId>cronapi-java</artifactId>
-            <version>0.0.90-d-s-b</version>
+            <version>0.0.99-d-s-b</version>
         </dependency>
         <dependency>
             <groupId>io.cronapp</groupId>
             <artifactId>cronapp-framework-java</artifactId>
-            <version>0.0.31-d-s-b</version>
+            <version>0.0.34-d-s-b</version>
         </dependency>
     </dependencies>
     <properties>

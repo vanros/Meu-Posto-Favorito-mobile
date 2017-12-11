@@ -8,6 +8,7 @@ window.blockly.js.blockly.CadastroUsuario = window.blockly.js.blockly.CadastroUs
  * CadastroUsuario
  */
 window.blockly.js.blockly.CadastroUsuario.inserir_dados = function() {
+	this.cronapi.screen.notify('info', 'Entrou no bloco');
 	if (this.cronapi.screen.getValueOfField("senha") == this.cronapi.screen
 			.getValueOfField("confere_senha")) {
 		this.cronapi.util.callServerBlocklyNoReturn(
@@ -15,6 +16,9 @@ window.blockly.js.blockly.CadastroUsuario.inserir_dados = function() {
 						.getValueOfField("email"), this.cronapi.screen
 						.getValueOfField("login"), this.cronapi.screen
 						.getValueOfField("senha"));
+		this.cronapi.screen.notify('info', this.cronapi.screen
+				.getValueOfField("email"));
+		this.cronapi.screen.notify('info', 'Entrou no bloco');
 		this.cronapi.screen
 				.notify('success', 'Cadastro Realizado com Sucesso!');
 		this.cronapi.screen.changeValueOfField("email", '0');

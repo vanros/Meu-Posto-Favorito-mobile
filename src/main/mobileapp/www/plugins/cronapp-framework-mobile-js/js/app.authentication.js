@@ -81,8 +81,9 @@ var app = (function() {
 
         // Set up the states
         $stateProvider
+
             .state('login', {
-              url: "/login",
+              url: "",
               controller: 'LoginController',
               templateUrl: 'views/login.view.html'
             })
@@ -90,7 +91,7 @@ var app = (function() {
             .state('main', {
               url: "/",
               controller: 'LoginController',
-              templateUrl: 'views/telaInicial.view.html'
+              templateUrl: 'views/login.view.html'
             })
 
             .state('app', {

@@ -23,6 +23,7 @@ public class CadastroUsuario {
 
 			public Var call() throws Exception {
 				cronapi.database.Operations.insert(Var.valueOf("app.entity.User"), Var.valueOf("password", senha),
+						Var.valueOf("name", email), Var.valueOf("id", cronapi.util.Operations.generateUUID()),
 						Var.valueOf("login", login), Var.valueOf("email", email));
 				return Var.VAR_NULL;
 			}

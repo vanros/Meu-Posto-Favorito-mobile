@@ -20,13 +20,14 @@
       "restPath": "/api/rest",
       "visionLikePackage": false,
       "chkApi": false,
-      "attrs": {},
       "restSecurity": {
         "get": "authenticated",
         "post": "authenticated",
         "put": "authenticated",
         "delete": "authenticated"
-      }
+      },
+      "generationType": "drop-and-create-tables",
+      "attrs": {}
     },
     {
       "type": "uml.Class",
@@ -158,17 +159,16 @@
         "id:java.lang.String",
         "login:java.lang.String",
         "picture:java.lang.String",
-        "password:java.lang.String",
-        "theme:java.lang.String"
+        "password:java.lang.String"
       ],
       "methods": [],
       "position": {
-        "x": 274,
-        "y": 96
+        "x": 275,
+        "y": 95
       },
       "size": {
         "width": 178.65625,
-        "height": 162.1875
+        "height": 151.27445220947266
       },
       "angle": 0,
       "isRest": true,
@@ -315,29 +315,6 @@
           "isEncryption": true,
           "referencedColumnName": "",
           "isSearchable": false
-        },
-        {
-          "name": "theme",
-          "type": "java.lang.String",
-          "dbName": "theme",
-          "dbLength": "",
-          "dbPrecision": "",
-          "dbScale": "",
-          "dbDefaultValue": "",
-          "label": "Tema",
-          "mask": "",
-          "isPrimaryKey": false,
-          "isUniqueKey": false,
-          "isNullable": true,
-          "pkType": "",
-          "multitenantContext": "",
-          "jsonIgnore": false,
-          "isTransient": false,
-          "isInsertable": true,
-          "isUpdatable": true,
-          "isEncryption": false,
-          "referencedColumnName": "",
-          "isSearchable": false
         }
       ],
       "role": "Class",
@@ -358,12 +335,12 @@
           "transform": "translate(0,0)"
         },
         ".uml-class-attrs-rect": {
-          "height": 170,
+          "height": 150,
           "transform": "translate(0,50)"
         },
         ".uml-class-methods-rect": {
           "height": 30,
-          "transform": "translate(0,220)"
+          "transform": "translate(0,200)"
         },
         ".uml-class-name-text": {
           "fill": "#000",
@@ -373,12 +350,12 @@
         },
         ".uml-class-attrs-text": {
           "font-size": 11,
-          "text": "email\nname\nid\nlogin\npicture\npassword\ntheme\n"
+          "text": "email\nname\nid\nlogin\npicture\npassword\n"
         },
         ".uml-class-attrs-value": {
           "ref-x": 82.953125,
           "font-size": 11,
-          "text": "java.lang.String\njava.lang.String\njava.lang.String\njava.lang.String\njava.lang.String\njava.lang.String\njava.lang.String\n"
+          "text": "java.lang.String\njava.lang.String\njava.lang.String\njava.lang.String\njava.lang.String\njava.lang.String\n"
         },
         ".uml-class-methods-text": {
           "fill": "#0066FF",
