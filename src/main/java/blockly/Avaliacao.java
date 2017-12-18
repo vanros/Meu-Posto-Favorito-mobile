@@ -26,6 +26,9 @@ public class Avaliacao {
 						Var.valueOf("texto", comentario), Var.valueOf("nota", nota),
 						Var.valueOf("abastecimento", cronapi.database.Operations.newEntity(
 								Var.valueOf("app.entity.Abastecimento"), Var.valueOf("id", id_abastecimento))));
+				cronapi.database.Operations.execute(Var.valueOf("app.entity.Abastecimento"),
+						Var.valueOf("update Abastecimento set status = :status where id = :id"),
+						Var.valueOf("status", Var.valueOf("true")), Var.valueOf("id", id_abastecimento));
 				return Var.VAR_NULL;
 			}
 		}.call();

@@ -9,25 +9,17 @@
   </ion-nav-buttons>
   <ion-content>
     <div class="component-holder ng-binding ng-scope ui-draggable ui-draggable-handle" data-component="crn-datasource" id="crn-datasource-906854">
-      <datasource  name="Carro" entity="api/cronapi/crud/app.entity.Carro" keys="id" rows-per-page="100" delete-message="Deseja remover?" class=""></datasource>
+      <datasource name="Carro" entity="api/cronapi/query/1h7rftv8tdt0z/" keys="id" rows-per-page="100" delete-message="Deseja remover?" class=""></datasource>
     </div>
     <div crn-datasource="Carro" class="" ng-hide="Carro.editing || Carro.inserting">
       <ion-list can-swipe="listCanSwipe">
         <ion-item ng-repeat="rowData in datasource.data" class="item" ng-click="datasource.startEditing(rowData)">
           <div class="row">
-            <div class="col">
-              {{rowData.placa}}
-            </div>
-            <div class="col">
-              {{rowData.modelo}}
-            </div>
-            <div class="col">
-              {{rowData.marca}}
-            </div>
-            <div class="col">
-              {{rowData.ano}}
-            </div>
-          </div>
+            
+            
+            
+            
+          <ion-item class="item dark component-holder col" xattr-theme="dark" data-replace="false" data-component="crn-list-item" id="crn-list-item-710232"><h1 data-component="crn-heading" class="component-holder" id="crn-heading-977217">{{rowData.modelo}}</h1><h2 xattr-position="text-left" class="component-holder text-left" data-component="crn-label" id="crn-label-139137">{{rowData.placa}}</h2></ion-item></div>
           <ion-option-button class="button-positive" ng-click="datasource.startEditing(rowData)">
             <i class="icon ion-edit"></i>
           </ion-option-button>
@@ -45,50 +37,26 @@
             <!-- placa begin -->
             <label for="textinput-placa" class="item item-input item-stacked-label">
             <span class="input-label">Placa</span>
-            <input
-            type="text"
-            placeholder="Placa"
-            ng-model="Carro.active.placa"
-            id="textinput-placa"
-            name="textinput-placa"
-            mask="AAA-9999"
-            >
+            <input type="text" placeholder="Placa" ng-model="Carro.active.placa" id="textinput-placa" name="textinput-placa" mask="AAA-9999">
             </label>
             <!-- modelo begin -->
             <label for="textinput-modelo" class="item item-input item-stacked-label">
             <span class="input-label">Modelo</span>
-            <input
-            type="text"
-            placeholder="Modelo"
-            ng-model="Carro.active.modelo"
-            id="textinput-modelo"
-            name="textinput-modelo"
-            >
+            <input type="text" placeholder="Modelo" ng-model="Carro.active.modelo" id="textinput-modelo" name="textinput-modelo">
             </label>
             <!-- marca begin -->
             <label for="textinput-marca" class="item item-input item-stacked-label">
             <span class="input-label">Marca</span>
-            <input
-            type="text"
-            placeholder="Marca"
-            ng-model="Carro.active.marca"
-            id="textinput-marca"
-            name="textinput-marca"
-            >
+            <input type="text" placeholder="Marca" ng-model="Carro.active.marca" id="textinput-marca" name="textinput-marca">
             </label>
             <!-- ano begin -->
             <label for="textinput-ano" class="item item-input item-stacked-label">
             <span class="input-label">Ano</span>
-            <input type="number" ng-model="Carro.active.ano" class="" id="textinput-ano" name="textinput-ano" placeholder="Ano" >
+            <input type="number" ng-model="Carro.active.ano" class="" id="textinput-ano" name="textinput-ano" placeholder="Ano">
             </label>
             <!-- user begin -->
             <datasource name="User" entity="api/cronapi/crud/app.entity.User" keys="id" class=""></datasource>
-            <label for="textinput-user" class="item item-input item-select">
-              <span class="input-label">user</span>
-              <select ng-model="Carro.active.user" class="form-control" id="textinput-user" name="textinput-user" ng-options="opt as opt.email for opt in User.data track by opt.id" >
-              <option value=''>None</option>
-              </select>
-            </label>
+            
           </div>
         </fieldset>
       </form>

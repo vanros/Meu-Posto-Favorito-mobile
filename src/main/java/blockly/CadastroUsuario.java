@@ -12,19 +12,29 @@ public class CadastroUsuario {
 
 	/**
 	 *
-	 * @param email
-	 * @param login
-	 * @param senha
 	 * @return Var
 	 */
 	// CadastroUsuario
-	public static Var inserir_dados(Var email, Var login, Var senha) throws Exception {
+	public static Var inserir_dados() throws Exception {
 		return new Callable<Var>() {
 
 			public Var call() throws Exception {
-				cronapi.database.Operations.insert(Var.valueOf("app.entity.User"), Var.valueOf("password", senha),
-						Var.valueOf("name", email), Var.valueOf("id", cronapi.util.Operations.generateUUID()),
-						Var.valueOf("login", login), Var.valueOf("email", email));
+				if (Var.valueOf(cronapi.screen.Operations.getValueOfField(Var.valueOf("senha"))
+						.equals(cronapi.screen.Operations.getValueOfField(Var.valueOf("senha_confere"))))
+						.getObjectAsBoolean()) {
+					cronapi.database.Operations.insert(Var.valueOf("app.entity.User"),
+							Var.valueOf("password", cronapi.screen.Operations.getValueOfField(Var.valueOf("senha"))),
+							Var.valueOf("name", cronapi.screen.Operations.getValueOfField(Var.valueOf("email"))),
+							Var.valueOf("login", cronapi.screen.Operations.getValueOfField(Var.valueOf("login"))),
+							Var.valueOf("email", cronapi.screen.Operations.getValueOfField(Var.valueOf("email"))));
+					cronapi.util.Operations.callClientFunction(Var.valueOf("cronapi.screen.notify"),
+							Var.valueOf("success"), Var.valueOf("Cadastro realizado com sucesso!"));
+					cronapi.util.Operations.callClientFunction(Var.valueOf("cronapi.screen.changeView"),
+							Var.valueOf("#/app/login"));
+				} else {
+					cronapi.util.Operations.callClientFunction(Var.valueOf("cronapi.screen.notify"),
+							Var.valueOf("error"), Var.valueOf("As senhas não conferem!"));
+				}
 				return Var.VAR_NULL;
 			}
 		}.call();

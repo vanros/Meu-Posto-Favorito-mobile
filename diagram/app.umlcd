@@ -421,7 +421,8 @@
         "valorAbastecimento:java.lang.Double",
         "precoLitro:java.lang.Double",
         "carro:Carro",
-        "posto:Posto"
+        "posto:Posto",
+        "status:java.lang.String"
       ],
       "methods": [],
       "position": {
@@ -430,7 +431,7 @@
       },
       "size": {
         "width": 246.703125,
-        "height": 162.1875
+        "height": 173.1134262084961
       },
       "angle": 0,
       "multitenantContextJsonIgnore": "false",
@@ -564,15 +565,19 @@
           "name": "carro",
           "type": "Carro",
           "dbName": "fk_carro",
+          "dbLength": "",
+          "dbPrecision": "",
+          "dbScale": "",
+          "dbDefaultValue": "",
           "label": "",
           "mask": "",
           "isPrimaryKey": false,
           "isUniqueKey": false,
           "isNullable": true,
-          "multitenantContext": "",
           "pkType": "",
-          "isIgnore": false,
-          "isTransien": false,
+          "multitenantContext": "",
+          "jsonIgnore": false,
+          "isTransient": false,
           "isInsertable": true,
           "isUpdatable": true,
           "isEncryption": false,
@@ -583,15 +588,42 @@
           "name": "posto",
           "type": "Posto",
           "dbName": "fk_posto",
+          "dbLength": "",
+          "dbPrecision": "",
+          "dbScale": "",
+          "dbDefaultValue": "",
           "label": "",
           "mask": "",
           "isPrimaryKey": false,
           "isUniqueKey": false,
           "isNullable": true,
-          "multitenantContext": "",
           "pkType": "",
-          "isIgnore": false,
-          "isTransien": false,
+          "multitenantContext": "",
+          "jsonIgnore": false,
+          "isTransient": false,
+          "isInsertable": true,
+          "isUpdatable": true,
+          "isEncryption": false,
+          "referencedColumnName": "",
+          "isSearchable": false
+        },
+        {
+          "name": "status",
+          "type": "java.lang.String",
+          "dbName": "status",
+          "dbLength": "",
+          "dbPrecision": "",
+          "dbScale": "",
+          "dbDefaultValue": "",
+          "label": "Status",
+          "mask": "",
+          "isPrimaryKey": false,
+          "isUniqueKey": false,
+          "isNullable": true,
+          "pkType": "",
+          "multitenantContext": "",
+          "jsonIgnore": false,
+          "isTransient": false,
           "isInsertable": true,
           "isUpdatable": true,
           "isEncryption": false,
@@ -611,12 +643,12 @@
           "transform": "translate(0,0)"
         },
         ".uml-class-attrs-rect": {
-          "height": 170,
+          "height": 190,
           "transform": "translate(0,50)"
         },
         ".uml-class-methods-rect": {
           "height": 30,
-          "transform": "translate(0,220)"
+          "transform": "translate(0,240)"
         },
         ".uml-class-name-text": {
           "fill": "#000",
@@ -626,12 +658,12 @@
         },
         ".uml-class-attrs-text": {
           "font-size": 11,
-          "text": "id\ndata\nkm\nvalorAbastecimento\nprecoLitro\ncarro\nposto\n"
+          "text": "id\ndata\nkm\nvalorAbastecimento\nprecoLitro\ncarro\nposto\nstatus\n"
         },
         ".uml-class-attrs-value": {
           "ref-x": 132.484375,
           "font-size": 11,
-          "text": "java.lang.String\njava.sql.Timestamp\njava.lang.Double\njava.lang.Double\njava.lang.Double\nCarro\nPosto\n"
+          "text": "java.lang.String\njava.sql.Timestamp\njava.lang.Double\njava.lang.Double\njava.lang.Double\nCarro\nPosto\njava.lang.String\n"
         },
         ".uml-class-methods-text": {
           "fill": "#0066FF",
@@ -914,7 +946,7 @@
       ],
       "methods": [],
       "position": {
-        "x": 444,
+        "x": 456,
         "y": 309
       },
       "size": {
@@ -1053,15 +1085,19 @@
           "name": "user",
           "type": "User",
           "dbName": "fk_user",
+          "dbLength": "",
+          "dbPrecision": "",
+          "dbScale": "",
+          "dbDefaultValue": "",
           "label": "",
           "mask": "",
           "isPrimaryKey": false,
           "isUniqueKey": false,
           "isNullable": true,
-          "multitenantContext": "",
           "pkType": "",
-          "isIgnore": false,
-          "isTransien": false,
+          "multitenantContext": "",
+          "jsonIgnore": false,
+          "isTransient": false,
           "isInsertable": true,
           "isUpdatable": true,
           "isEncryption": false,

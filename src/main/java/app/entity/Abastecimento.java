@@ -79,6 +79,13 @@ public class Abastecimento implements Serializable {
   private Posto posto;
 
   /**
+  * @generated
+  */
+  @Column(name = "status", nullable = true, unique = false, insertable=true, updatable=true)
+  
+  private java.lang.String status;
+
+  /**
    * Construtor
    * @generated
    */
@@ -223,6 +230,26 @@ public class Abastecimento implements Serializable {
    */
   public Abastecimento setPosto(Posto posto){
     this.posto = posto;
+    return this;
+  }
+
+  /**
+   * Obtém status
+   * return status
+   * @generated
+   */
+  
+  public java.lang.String getStatus(){
+    return this.status;
+  }
+
+  /**
+   * Define status
+   * @param status status
+   * @generated
+   */
+  public Abastecimento setStatus(java.lang.String status){
+    this.status = status;
     return this;
   }
 
