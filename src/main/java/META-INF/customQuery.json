@@ -204,12 +204,12 @@
 				"condition": "AND",
 				"rules": [
 					{
-						"id": "a.carro.user.login",
-						"field": "a.carro.user.login",
+						"id": "a.carro.user",
+						"field": "a.carro.user",
 						"type": "string",
 						"input": "text",
 						"operator": "equal",
-						"value": ":carroUserLogin",
+						"value": ":carroUser",
 						"valueIsField": false
 					}
 				],
@@ -222,7 +222,7 @@
 		},
 		"queryParamsValues": [
 			{
-				"fieldName": "carroUserLogin",
+				"fieldName": "carroUser",
 				"fieldValue": {
 					"blocklyClass": "blockly.Usuario",
 					"blocklyMethod": "obter_usuario",
@@ -431,5 +431,161 @@
 			"foreignKey": null
 		},
 		"serviceUrl": "api/cronapi/query/1h7rftv8tdt0z/"
+	},
+	"1hr5vhhqzcz78": {
+		"customId": "Abastecimentos",
+		"queryName": "Abastecimentos",
+		"screen": "src/main/mobileapp/www/views/logged/abastecimento.view.html",
+		"sourceType": "entityFullName",
+		"blockly": null,
+		"entitySimpleName": "Abastecimento",
+		"entityFullName": "app.entity.Abastecimento",
+		"query": {
+			"isValid": true,
+			"rulesEntity": [
+				{
+					"entity": "Abastecimento",
+					"alias": "a",
+					"namespace": "app.entity.Abastecimento"
+				}
+			],
+			"rulesSelect": [
+				{
+					"func": "get",
+					"field": "a"
+				}
+			],
+			"rulesGroupBy": [],
+			"rulesHaving": [],
+			"rulesOrderBy": [],
+			"rules": {
+				"condition": "AND",
+				"not": false,
+				"valid": true,
+				"rules": []
+			}
+		},
+		"queryParamsValues": [],
+		"verbs": {
+			"GET": true,
+			"GETAuthorities": null,
+			"POST": true,
+			"POSTAuthorities": null,
+			"PUT": true,
+			"PUTAuthorities": null,
+			"DELETE": true,
+			"DELETEAuthorities": null,
+			"FILTER": true,
+			"FILTERAuthorities": null
+		},
+		"events": {
+			"beforeInsert": null,
+			"beforeUpdate": null,
+			"beforeDelete": null,
+			"afterInsert": null,
+			"afterUpdate": null,
+			"afterDelete": null,
+			"onNavigate": null,
+			"onGetData": null
+		},
+		"defaultValues": {
+			"id": null,
+			"data": null,
+			"km": null,
+			"valorAbastecimento": null,
+			"precoLitro": null,
+			"carro": null,
+			"posto": null,
+			"status": null
+		},
+		"security": {
+			"id": null,
+			"data": null,
+			"km": null,
+			"valorAbastecimento": null,
+			"precoLitro": null,
+			"carro": null,
+			"posto": null,
+			"status": null
+		},
+		"calcFields": {},
+		"calcFieldsSecurity": {},
+		"errorHandles": {
+			"primaryKey": null,
+			"foreignKey": null
+		},
+		"serviceUrl": "api/cronapi/query/1hr5vhhqzcz78/"
+	},
+	"qdq18kdmf5m8": {
+		"customId": "qdq18kdmf5m8",
+		"queryName": "Users",
+		"screen": "src/main/mobileapp/www/views/logged/user.view.html",
+		"sourceType": "blockly",
+		"blockly": {
+			"blocklyClass": "blockly.Usuarios",
+			"blocklyMethod": "Obter",
+			"blocklyLanguage": "java",
+			"blocklyJson": {
+				"namespace": "blockly.Usuarios",
+				"classNameNew": "Usuarios",
+				"classNameOld": "Usuarios",
+				"sourcePath": "src/main/java/blockly/Usuarios.blockly",
+				"language": "java",
+				"class": "blockly.Usuarios",
+				"methods": [
+					{
+						"name": "Obter",
+						"hasReturn": "true",
+						"params": []
+					},
+					{
+						"name": "inserir",
+						"hasReturn": "false",
+						"params": []
+					}
+				]
+			},
+			"blocklyFunctionCall": "cronapi.util.makeCallServerBlocklyAsync('blockly.Usuarios:Obter', null, null)",
+			"blocklyGETMethod": "Obter",
+			"blocklyPOSTMethod": "Obter",
+			"blocklyPUTMethod": "Obter",
+			"blocklyDELETEMethod": "Obter",
+			"blocklyFILTERMethod": "Obter"
+		},
+		"entitySimpleName": null,
+		"entityFullName": null,
+		"query": "",
+		"queryParamsValues": [],
+		"verbs": {
+			"GET": true,
+			"GETAuthorities": null,
+			"POST": true,
+			"POSTAuthorities": null,
+			"PUT": true,
+			"PUTAuthorities": null,
+			"DELETE": true,
+			"DELETEAuthorities": null,
+			"FILTER": true,
+			"FILTERAuthorities": null
+		},
+		"events": {
+			"beforeInsert": null,
+			"beforeUpdate": null,
+			"beforeDelete": null,
+			"afterInsert": null,
+			"afterUpdate": null,
+			"afterDelete": null,
+			"onNavigate": null,
+			"onGetData": null
+		},
+		"defaultValues": {},
+		"security": {},
+		"calcFields": {},
+		"calcFieldsSecurity": {},
+		"errorHandles": {
+			"primaryKey": null,
+			"foreignKey": null
+		},
+		"serviceUrl": "api/cronapi/query/qdq18kdmf5m8/"
 	}
 }

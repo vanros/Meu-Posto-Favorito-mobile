@@ -705,6 +705,17 @@
     window[datasource].$apply( new function(){window[datasource].remove();} );
   };
 
+  /**
+   * @type function
+   * @name {{refreshActiveRecordName}}
+   * @nameTags hasNextRecord
+   * @description {{refreshActiveRecordDescription}}
+   * @param {ObjectType.STRING} datasource {{refreshActiveRecordParam0}}
+   * @multilayer true
+   */
+  this.cronapi.screen.refreshActiveRecord = function(/** @type {ObjectType.OBJECT} @blockType datasource_from_screen*/ datasource) {
+    window[datasource].refreshActive();
+  };
 
   /**
    * @type function
@@ -973,6 +984,47 @@
    * @categoryTags Date|Datetime|Data|Hora
    */
   this.cronapi.dateTime = {};
+  
+  
+  this.cronapi.dateTime.utcTimestamp = true
+
+  this.cronapi.dateTime.formats = function() {
+    var formats = [];
+    
+    if (this.cronapi.$translate.use() == 'pt_br') 
+      formats = ['DD/MM/YYYY HH:mm:ss', 'DD/MM/YYYY', 'DD-MM-YYYY HH:mm:ss', 'DD-MM-YYYY'];
+    else
+      formats = ['MM/DD/YYYY HH:mm:ss', 'MM/DD/YYYY', 'MM-DD-YYYY HH:mm:ss', 'MM-DD-YYYY'];
+    
+    formats.push('YYYY-MM-DDTHH:mm:ss');
+    formats.push('HH:mm:ss')
+    formats.push('MMMM');
+    
+    return formats;
+  };
+
+  this.cronapi.dateTime.getMomentObj = function(value) {
+    var currentMoment = moment;
+    if (this.cronapi.dateTime.utcTimestamp)
+      currentMoment = moment.utc;
+    
+    if (value  instanceof moment) {
+      return value;
+    }
+    else if (value instanceof Date) {
+      return currentMoment(value);
+    }
+    else  {
+      var formats = this.cronapi.dateTime.formats();
+      var momentObj = null;
+      for (var ix in formats) {
+        momentObj = currentMoment(value, formats[ix]);
+        if (momentObj.isValid())
+          break;
+      }
+      return momentObj;
+    }
+  };
 
   /**
    * @type function
@@ -983,9 +1035,9 @@
    * @returns {ObjectType.LONG}
    */
   this.cronapi.dateTime.getSecond = function(value) {
-    var date = this.cronapi.conversion.stringToDate(value);
+    var date = this.cronapi.dateTime.getMomentObj(value);
     if (date)
-      return date.getSeconds();
+      return date.get('second');
     return 0;
   };
 
@@ -998,9 +1050,9 @@
    * @returns {ObjectType.LONG}
    */
   this.cronapi.dateTime.getMinute = function(value) {
-    var date = this.cronapi.conversion.stringToDate(value);
+    var date = this.cronapi.dateTime.getMomentObj(value);
     if (date)
-      return date.getMinutes();
+      return date.get('minute');
     return 0;
   };
 
@@ -1013,9 +1065,9 @@
    * @returns {ObjectType.LONG}
    */
   this.cronapi.dateTime.getHour = function(value) {
-    var date = this.cronapi.conversion.stringToDate(value);
+    var date = this.cronapi.dateTime.getMomentObj(value);
     if (date)
-      return date.getHours();
+      return date.get('hour');
     return 0;
   };
 
@@ -1028,9 +1080,9 @@
    * @returns {ObjectType.LONG}
    */
   this.cronapi.dateTime.getYear = function(value) {
-    var date = this.cronapi.conversion.stringToDate(value);
+    var date = this.cronapi.dateTime.getMomentObj(value);
     if (date)
-      return date.getFullYear();
+      return date.get('year');
     return 0;
   };
 
@@ -1043,9 +1095,9 @@
    * @returns {ObjectType.LONG}
    */
   this.cronapi.dateTime.getMonth = function(value) {
-    var date = this.cronapi.conversion.stringToDate(value);
+    var date = this.cronapi.dateTime.getMomentObj(value);
     if (date)
-      return date.getMonth() + 1;
+      return date.get('month') + 1;
     return 0;
   };
 
@@ -1058,10 +1110,55 @@
    * @returns {ObjectType.LONG}
    */
   this.cronapi.dateTime.getDay = function(value) {
-    var date = this.cronapi.conversion.stringToDate(value);
+    var date = this.cronapi.dateTime.getMomentObj(value);
     if (date)
-      return date.getDate();
+      return date.get('date');
     return 0;
+  };
+
+  /**
+   * @type function
+   * @name {{getSecondsBetweenDates}}
+   * @nameTags getSecondsBetweenDates|getSecondsDiffDate|diffDatesSeconds
+   * @description {{functionToGetSecondsBetweenDates}}
+   * @param {ObjectType.DATETIME} date {{largerDateToBeSubtracted}}
+   * @param {ObjectType.DATETIME} date2 {{smallerDateToBeSubtracted}}
+   * @returns {ObjectType.LONG}
+   */
+  this.cronapi.dateTime.getSecondsBetweenDates = function(date, date2) {
+    var dateVar = this.cronapi.dateTime.getMomentObj(date);
+    var date2Var = this.cronapi.dateTime.getMomentObj(date2);
+    return dateVar.diff(date2Var, 'seconds');
+  };
+
+  /**
+   * @type function
+   * @name {{getMinutesBetweenDates}}
+   * @nameTags getMinutesBetweenDates|getMinutesDiffDate|diffDatesMinutes
+   * @description {{functionToGetMinutesBetweenDates}}
+   * @param {ObjectType.DATETIME} date {{largerDateToBeSubtracted}}
+   * @param {ObjectType.DATETIME} date2 {{smallerDateToBeSubtracted}}
+   * @returns {ObjectType.LONG}
+   */
+  this.cronapi.dateTime.getMinutesBetweenDates = function(date, date2) {
+    var dateVar = this.cronapi.dateTime.getMomentObj(date);
+    var date2Var = this.cronapi.dateTime.getMomentObj(date2);
+    return dateVar.diff(date2Var, 'minutes');
+  };
+
+  /**
+   * @type function
+   * @name {{getHoursBetweenDates}}
+   * @nameTags getHoursBetweenDates|getHoursDiffDate|diffDatesHours
+   * @description {{functionToGetHoursBetweenDates}}
+   * @param {ObjectType.DATETIME} date {{largerDateToBeSubtracted}}
+   * @param {ObjectType.DATETIME} date2 {{smallerDateToBeSubtracted}}
+   * @returns {ObjectType.LONG}
+   */
+  this.cronapi.dateTime.getHoursBetweenDates = function(date, date2) {
+    var dateVar = this.cronapi.dateTime.getMomentObj(date);
+    var date2Var = this.cronapi.dateTime.getMomentObj(date2);
+    return dateVar.diff(date2Var, 'hours');
   };
 
   /**
@@ -1074,12 +1171,9 @@
    * @returns {ObjectType.LONG}
    */
   this.cronapi.dateTime.getDaysBetweenDates = function(date, date2) {
-    var DAY_IN_MILLIS = 1000 * 60 * 60 * 24;
-    var dateVar = this.cronapi.conversion.stringToDate(date);
-    var date2Var = this.cronapi.conversion.stringToDate(date2);
-    var daysBetween = Math.round((dateVar.getTime() - date2Var.getTime())
-        / DAY_IN_MILLIS);
-    return daysBetween;
+    var dateVar = this.cronapi.dateTime.getMomentObj(date);
+    var date2Var = this.cronapi.dateTime.getMomentObj(date2);
+    return dateVar.diff(date2Var, 'days');
   };
 
   /**
@@ -1092,21 +1186,9 @@
    * @returns {ObjectType.LONG}
    */
   this.cronapi.dateTime.getMonthsBetweenDates = function(date, date2) {
-    var monthBetween = 0;
-    var yearBetween = 0;
-    var dateVar = this.cronapi.conversion.stringToDate(date);
-    var date2Var = this.cronapi.conversion.stringToDate(date2);
-    if (dateVar && date2Var) {
-      yearBetween = (dateVar.getFullYear() - date2Var.getFullYear()) * 12;
-      monthBetween = dateVar.getMonth() - date2Var.getMonth();
-      monthBetween += yearBetween;
-      if (date2Var < dateVar && dateVar.getDate() < date2Var.getDate())
-        monthBetween--;
-      else if (date2Var > dateVar
-          && dateVar.getDate() > date2Var.getDate())
-        monthBetween++;
-    }
-    return monthBetween;
+    var dateVar = this.cronapi.dateTime.getMomentObj(date);
+    var date2Var = this.cronapi.dateTime.getMomentObj(date2);
+    return dateVar.diff(date2Var, 'months');
   };
 
   /**
@@ -1119,21 +1201,51 @@
    * @returns {ObjectType.LONG}
    */
   this.cronapi.dateTime.getYearsBetweenDates = function(date, date2) {
-    var yearBetween = 0;
-    var dateVar = this.cronapi.conversion.stringToDate(date);
-    var date2Var = this.cronapi.conversion.stringToDate(date2);
-    if (dateVar && date2Var) {
-      yearBetween = (dateVar.getFullYear() - date2Var.getFullYear());
-      if (date2Var < dateVar
-          && (dateVar.getDate() < date2Var.getDate() || dateVar
-              .getMonth() < date2Var.getMonth()))
-        yearBetween--;
-      else if (date2Var > dateVar
-          && (dateVar.getDate() > date2Var.getDate() || dateVar
-              .getMonth() > date2Var.getMonth()))
-        yearBetween++;
-    }
-    return yearBetween;
+    var dateVar = this.cronapi.dateTime.getMomentObj(date);
+    var date2Var = this.cronapi.dateTime.getMomentObj(date2);
+    return dateVar.diff(date2Var, 'years');
+  };
+  
+  /**
+   * @type function
+   * @name {{incSecond}}
+   * @nameTags incSecond|increaseSecond
+   * @description {{functionToIncSecond}}
+   * @param {ObjectType.DATETIME} date {{ObjectType.DATETIME}}
+   * @param {ObjectType.LONG} second {{secondsToIncrement}}
+   * @returns {ObjectType.DATETIME}
+   */
+  this.cronapi.dateTime.incSecond = function(date, second) {
+    var dateVar = this.cronapi.dateTime.getMomentObj(date);
+    return dateVar.add('seconds', second).toDate();  
+  };
+  
+   /**
+   * @type function
+   * @name {{incMinute}}
+   * @nameTags incMinute|increaseMinute
+   * @description {{functionToIncMinute}}
+   * @param {ObjectType.DATETIME} date {{ObjectType.DATETIME}}
+   * @param {ObjectType.LONG} minute {{minutesToIncrement}}
+   * @returns {ObjectType.DATETIME}
+   */
+  this.cronapi.dateTime.incMinute = function(date, minute) {
+    var dateVar = this.cronapi.dateTime.getMomentObj(date);
+    return dateVar.add('minutes', minute).toDate();  
+  };
+  
+  /**
+   * @type function
+   * @name {{incHour}}
+   * @nameTags incHour|increaseHour
+   * @description {{functionToIncHour}}
+   * @param {ObjectType.DATETIME} date {{ObjectType.DATETIME}}
+   * @param {ObjectType.LONG} hour {{hoursToIncrement}}
+   * @returns {ObjectType.DATETIME}
+   */
+  this.cronapi.dateTime.incHour = function(date, hour) {
+    var dateVar = this.cronapi.dateTime.getMomentObj(date);
+    return dateVar.add('hours', hour).toDate();  
   };
 
   /**
@@ -1146,9 +1258,8 @@
    * @returns {ObjectType.DATETIME}
    */
   this.cronapi.dateTime.incDay = function(date, day) {
-    var dateVar = this.cronapi.conversion.stringToDate(date);
-    dateVar.setDate(dateVar.getDate() + day);
-    return dateVar;
+    var dateVar = this.cronapi.dateTime.getMomentObj(date);
+    return dateVar.add('days', day).toDate();  
   };
 
   /**
@@ -1161,9 +1272,8 @@
    * @returns {ObjectType.DATETIME}
    */
   this.cronapi.dateTime.incMonth = function(date, month) {
-    var dateVar = this.cronapi.conversion.stringToDate(date);
-    dateVar.setMonth(dateVar.getMonth() + month);
-    return dateVar;
+    var dateVar = this.cronapi.dateTime.getMomentObj(date);
+    return dateVar.add('months', month).toDate();  
   };
 
   /**
@@ -1176,9 +1286,8 @@
    * @returns {ObjectType.DATETIME}
    */
   this.cronapi.dateTime.incYear = function(date, year) {
-    var dateVar = this.cronapi.conversion.stringToDate(date);
-    dateVar.setFullYear(dateVar.getFullYear() + year);
-    return dateVar;
+    var dateVar = this.cronapi.dateTime.getMomentObj(date);
+    return dateVar.add('years', year).toDate(); 
   };
 
   /**
@@ -1189,7 +1298,7 @@
    * @returns {ObjectType.DATETIME}
    */
   this.cronapi.dateTime.getNow = function() {
-    return new Date();
+    return this.cronapi.dateTime.getMomentObj(new Date().toLocaleString()).toDate();
   };
 
   /**
@@ -1202,16 +1311,25 @@
    * @returns {ObjectType.STRING}
    */
   this.cronapi.dateTime.formatDateTime = function(date, format) {
-    var dateVar = this.cronapi.conversion.stringToDate(date);
-    var dd = dateVar.getDate();
-    var mm = dateVar.getMonth() + 1;
-    var yyyy = dateVar.getFullYear();
+    format = format.toLowerCase();
+    if (format.indexOf(':mm') > -1)
+      format = this.cronapi.internal.replaceAll(format, ':mm',':minutes');
+    format = this.cronapi.internal.replaceAll(format, ' ','+" "+');
+    format = this.cronapi.internal.replaceAll(format, ':','+":"+');
+    
+    var dateVar = this.cronapi.dateTime.getMomentObj(date);
+    var dd = dateVar.get('date');
+    var mm = dateVar.get('month') + 1;
+    var yyyy = dateVar.get('year');
+    var hh = dateVar.get('hour');
+    var minutes = dateVar.get('minute');
+    var ss = dateVar.get('second');
     var separator = '';
     var maskChars = 'dmy';
     for (var i = 0; i < format.length; i++) {
-      if (!maskChars.includes(format.toLowerCase().charAt(i))) {
-        separator = format.toLowerCase().charAt(i);
-        var formatLower = this.cronapi.internal.replaceAll(format.toLowerCase(), separator, '+separator+');
+      if (!maskChars.includes(format.charAt(i))) {
+        separator = format.charAt(i);
+        var formatLower = this.cronapi.internal.replaceAll(format, separator, '+separator+');
         return eval(formatLower);
       }
     }
@@ -1239,7 +1357,7 @@
     date.setHours(hour);
     date.setMinutes(minute);
     date.setSeconds(second);
-    return date;
+    return this.cronapi.dateTime.getMomentObj(date.toLocaleString()).toDate();
   };
 
   /**

@@ -9,7 +9,7 @@
   </ion-nav-buttons>
   <ion-content>
     <div class="component-holder ng-binding ng-scope ui-draggable ui-draggable-handle" data-component="crn-datasource" id="crn-datasource-906854">
-      <datasource  name="Posto" entity="api/cronapi/crud/app.entity.Posto" keys="id" rows-per-page="100" delete-message="Deseja remover?" class=""></datasource>
+      <datasource name="Posto" entity="api/cronapi/crud/app.entity.Posto" keys="id" rows-per-page="100" delete-message="Deseja remover?" class=""></datasource>
     </div>
     <div crn-datasource="Posto" class="" ng-hide="Posto.editing || Posto.inserting">
       <ion-list can-swipe="listCanSwipe">
@@ -44,7 +44,7 @@
             &nbsp;
             <i class="icon ion-trash-a"></i>
           </ion-option-button>
-        </ion-item>
+        </ion-item><label class="item item-input component-holder" data-component="crn-input" id="crn-input-227143"><input id="textinput-id" type="text" placeholder="Placeholder text" ng-model="coordenadas"></label><button class="button button-dark component-holder" type="submit" ng-click="blockly.js.blockly.Localizacao.Executar()" data-component="crn-button" id="crn-button-820414"><i class="ion ion-home"></i> <span>Button </span></button>
       </ion-list>
     </div>
     <div ng-show="Posto.editing || Posto.inserting">
@@ -54,74 +54,37 @@
             <!-- nome begin -->
             <label for="textinput-nome" class="item item-input item-stacked-label">
             <span class="input-label">Nome</span>
-            <input
-            type="text"
-            placeholder="Nome"
-            ng-model="Posto.active.nome"
-            id="textinput-nome"
-            name="textinput-nome"
-            >
+            <input type="text" placeholder="Nome" ng-model="Posto.active.nome" id="textinput-nome" name="textinput-nome">
             </label>
             <!-- cep begin -->
             <label for="textinput-cep" class="item item-input item-stacked-label">
             <span class="input-label">Cep</span>
-            <input
-            type="text"
-            placeholder="Cep"
-            ng-model="Posto.active.cep"
-            id="textinput-cep"
-            name="textinput-cep"
-            mask="99.999-999"
-            >
+            <input type="text" placeholder="Cep" ng-model="Posto.active.cep" id="textinput-cep" name="textinput-cep" mask="99.999-999">
             </label>
             <!-- logradouro begin -->
             <label for="textinput-logradouro" class="item item-input item-stacked-label">
             <span class="input-label">Logradouro</span>
-            <input
-            type="text"
-            placeholder="Logradouro"
-            ng-model="Posto.active.logradouro"
-            id="textinput-logradouro"
-            name="textinput-logradouro"
-            >
+            <input type="text" placeholder="Logradouro" ng-model="Posto.active.logradouro" id="textinput-logradouro" name="textinput-logradouro">
             </label>
             <!-- numero begin -->
             <label for="textinput-numero" class="item item-input item-stacked-label">
             <span class="input-label">Numero</span>
-            <input type="number" ng-model="Posto.active.numero" class="" id="textinput-numero" name="textinput-numero" placeholder="Numero" >
+            <input type="number" ng-model="Posto.active.numero" class="" id="textinput-numero" name="textinput-numero" placeholder="Numero">
             </label>
             <!-- bairro begin -->
             <label for="textinput-bairro" class="item item-input item-stacked-label">
             <span class="input-label">Bairro</span>
-            <input
-            type="text"
-            placeholder="Bairro"
-            ng-model="Posto.active.bairro"
-            id="textinput-bairro"
-            name="textinput-bairro"
-            >
+            <input type="text" placeholder="Bairro" ng-model="Posto.active.bairro" id="textinput-bairro" name="textinput-bairro">
             </label>
             <!-- cidade begin -->
             <label for="textinput-cidade" class="item item-input item-stacked-label">
             <span class="input-label">Cidade</span>
-            <input
-            type="text"
-            placeholder="Cidade"
-            ng-model="Posto.active.cidade"
-            id="textinput-cidade"
-            name="textinput-cidade"
-            >
+            <input type="text" placeholder="Cidade" ng-model="Posto.active.cidade" id="textinput-cidade" name="textinput-cidade">
             </label>
             <!-- uf begin -->
             <label for="textinput-uf" class="item item-input item-stacked-label">
             <span class="input-label">UF</span>
-            <input
-            type="text"
-            placeholder="UF"
-            ng-model="Posto.active.uf"
-            id="textinput-uf"
-            name="textinput-uf"
-            >
+            <input type="text" placeholder="UF" ng-model="Posto.active.uf" id="textinput-uf" name="textinput-uf">
             </label>
           </div>
         </fieldset>

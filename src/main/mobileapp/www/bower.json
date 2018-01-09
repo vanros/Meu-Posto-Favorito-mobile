@@ -23,8 +23,8 @@
 		"src"
 	],
 	"dependencies": {
-		"cronapp-framework-mobile-js": "0.0.37-d-s-b",
-		"cronapi-js": "0.0.90-d-s-b"
+		"cronapp-framework-mobile-js": "0.0.41-d-s-b",
+		"cronapi-js": "0.0.95-d-s-b"
 	},
 	"resolutions": {
 		"angular": ">= 1.0.8"

@@ -22,17 +22,9 @@
             
             
             
-          </div><ion-item class="item dark component-holder col" xattr-theme="dark" data-replace="false" data-component="crn-list-item" id="crn-list-item-442276"><h1 data-component="crn-heading" class="component-holder" id="crn-heading-66045">{{rowData.posto.nome}}</h1><h2 xattr-position="text-left" class="component-holder text-left" data-component="crn-label" id="crn-label-947682">{{rowData.data | date:'dd/MM/yyyy HH:mm:ss'}}</h2><a href="#/app/logged/avaliacao?abastecimento={{rowData.id}}" class="component-holder" target="_self" onclick="" style="display:block" xattr-fullsize="display:block;" data-replace="false" data-component="crn-anchor" id="crn-anchor-271008"><button class="button component-holder button-small button-clear button-balanced" type="submit" ng-click="" data-component="crn-button" id="crn-button-978840" xattr-size="button-small" xattr-type="button-clear" xattr-theme="button-balanced"><i class="ion ion-android-done"></i> <span>Avaliar</span></button></a></ion-item><div class="row">
-            
-            
-            
-            
-            
-            
-            
-          </div>
+          <ion-item class="item dark component-holder col" xattr-theme="dark" data-replace="false" data-component="crn-list-item" id="crn-list-item-856188"><h1 data-component="crn-heading" class="component-holder" id="crn-heading-569463">{{rowData.posto.nome}}</h1><h2 xattr-position="text-left" class="component-holder text-left" data-component="crn-label" id="crn-label-53574">{{rowData.data | date:'dd/MM/yyyy HH:mm:ss'}}</h2><a href="#/app/logged/avaliacao" class="component-holder" target="_self" onclick="" style="display:block" xattr-fullsize="display:block;" data-replace="false" data-component="crn-anchor" id="crn-anchor-662587"><button class="button component-holder button-clear button-balanced" type="submit" ng-click="" data-component="crn-button" id="crn-button-700946" xattr-type="button-clear" xattr-theme="button-balanced"><i class="ion ion-android-done"></i> <span>Avaliar</span></button></a></ion-item></div>
           <ion-option-button class="button-positive" ng-click="datasource.startEditing(rowData)">
-            <i class="icon ion ion-edit"></i>
+            <i class="icon ion-edit"></i>
           </ion-option-button>
           <ion-option-button class="button-assertive" ng-click="datasource.remove(rowData)">
             &nbsp;
@@ -48,7 +40,7 @@
             <!-- data begin -->
             <label for="textinput-data" class="item item-input item-stacked-label">
             <span class="input-label">Data</span>
-            <input type="time" placeholder="Data" ng-model="Abastecimento.active.data" id="textinput-data" name="textinput-data">
+            <input type="datetime" placeholder="Data" ng-model="Abastecimento.active.data" id="textinput-data" name="textinput-data">
             </label>
             <!-- km begin -->
             <label for="textinput-km" class="item item-input item-stacked-label">
@@ -81,8 +73,10 @@
               <option value="">None</option>
               </select>
             </label>
-            <!-- avaliacao begin -->
-            <datasource name="Avaliacao" entity="api/cronapi/crud/app.entity.Avaliacao" keys="id" class=""></datasource>
+            <!-- status begin -->
+            
+            <!-- user begin -->
+            
             
           </div>
         </fieldset>
@@ -90,3 +84,4 @@
     </div>
   </ion-content>
 </ion-view>
+
