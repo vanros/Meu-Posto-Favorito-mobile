@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?><blockly formTarget="src/main/mobileapp/www/views/logged/posto.view.html" resourceType="JS" ruleDescription="localizacao" ruleName="localizacao" ruleSynchronous="false" ruleTimeout="300" ruleType="I">
-  <metadata scale="1" scrollx="397.8372534142702" scrolly="-215.4999999999991" target="Anb:u5+^,0vLkL9QIqn5"/>
+  <metadata scale="1" scrollx="398.83725341426964" scrolly="-226.72591362126235" target="Anb:u5+^,0vLkL9QIqn5"/>
   <block colour="#995ba5" id="Anb:u5+^,0vLkL9QIqn5" origintype="procedures_defreturn" output="false" tooltip="Cria uma função que possui um valor de retorno." type="procedures_defreturn" x="-350" y="130">
-    <field name="NAME">Executar</field>
+    <field name="NAME">obter_coordenadas</field>
     <comment h="80" pinned="false" w="160">localizacao</comment>
     <statement name="STACK">
       <block colour="#5ba58c" dependencyby="Anb:u5+^,0vLkL9QIqn5" id="^v`IXEDQ5aJN5;)nlnpQ" origintype="text_print" output="false" tooltip="Imprime o texto, número ou valor especificado." type="text_print">
@@ -11,7 +11,7 @@
           </shadow>
         </value>
         <next>
-          <block colour="#f9924c" dependencyby="Anb:u5+^,0vLkL9QIqn5" id="|?5f~wyO(M)0bo9:9Fmk" multilayer="false" namespace="cronapi.cordova.geolocation.getCurrentPosition" origintype="procedures_callnoreturn" output="false" returntype="ObjectType.VOID" tooltip="%3Cdiv%20class=%22name%22%3E%3Cstrong%3ENome:%3C/strong%3E%3Cdiv%3EObter%20Georreferenciamento%3C/div%3E%3C/div%3E%3Cdiv%20class=%22description%22%3E%3Cstrong%3EDescri%C3%A7%C3%A3o:%3C/strong%3E%3Cdiv%3EFun%C3%A7%C3%A3o%20para%20obter%20a%20posi%C3%A7%C3%A3o%20georreferenciada.%3C/div%3E%3C/div%3E%3Cdiv%20class=%22params%22%3E%3Cstrong%3EParam%C3%AAtro:%3C/strong%3E%3Cdiv%3E%3Cspan%3E%20-%20Sucesso%20:%20Envio%20de%20comandos%3C/span%3E%3Cbr%3E%3Cspan%3E%20-%20Erro%20:%20Envio%20de%20comandos%3C/span%3E%3Cbr%3E%3C/div%3E%3C/div%3E%3Cdiv%20class=%22link%22%3E%3Cstrong%3EAjuda:%3C/strong%3E%3Cdiv%20class=%22tooltip-link%22%3E%3Ca%20target=%22_blank%22%20href=%22https://docs.cronapp.io/display/CRON2/cronapi.cordova.geolocation.getCurrentPosition%22%3Ehttps://docs.cronapp.io/display/CRON2/cronapi.cordova.geolocation.getCurrentPosition%3C/a%3E%3C/div%3E%3C/div%3E" type="procedures_callnoreturn">
+          <block colour="#f9924c" dependencyby="Anb:u5+^,0vLkL9QIqn5" id="FDDf4FODSf$p6i^LGnRq" multilayer="false" namespace="cronapi.cordova.geolocation.getCurrentPosition" origintype="procedures_callnoreturn" output="false" returntype="ObjectType.VOID" tooltip="%3Cdiv%20class=%22name%22%3E%3Cstrong%3ENome:%3C/strong%3E%3Cdiv%3EObter%20Georreferenciamento%3C/div%3E%3C/div%3E%3Cdiv%20class=%22description%22%3E%3Cstrong%3EDescri%C3%A7%C3%A3o:%3C/strong%3E%3Cdiv%3EFun%C3%A7%C3%A3o%20para%20obter%20a%20posi%C3%A7%C3%A3o%20georreferenciada.%3C/div%3E%3C/div%3E%3Cdiv%20class=%22params%22%3E%3Cstrong%3EParam%C3%AAtro:%3C/strong%3E%3Cdiv%3E%3Cspan%3E%20-%20Sucesso%20:%20Envio%20de%20comandos%3C/span%3E%3Cbr%3E%3Cspan%3E%20-%20Erro%20:%20Envio%20de%20comandos%3C/span%3E%3Cbr%3E%3C/div%3E%3C/div%3E%3Cdiv%20class=%22link%22%3E%3Cstrong%3EAjuda:%3C/strong%3E%3Cdiv%20class=%22tooltip-link%22%3E%3Ca%20target=%22_blank%22%20href=%22https://docs.cronapp.io/display/CRON2/cronapi.cordova.geolocation.getCurrentPosition%22%3Ehttps://docs.cronapp.io/display/CRON2/cronapi.cordova.geolocation.getCurrentPosition%3C/a%3E%3C/div%3E%3C/div%3E" type="procedures_callnoreturn">
             <mutation name="{{cronapi.cordova.geolocation.getCurrentPosition}}">
               <arg cronapi-type="ObjectType.STATEMENTSENDER" name="Sucesso"/>
               <arg cronapi-type="ObjectType.STATEMENTSENDER" name="Erro"/>
@@ -89,7 +89,7 @@
                 </value>
                 <next>
                   <block colour="#487f7f" dependencyby="Anb:u5+^,0vLkL9QIqn5" id="J1nCI;4!I~Z;zmE5KuEo" multilayer="false" namespace="cronapi.util.callServerBlocklyNoReturn" origintype="procedures_callblockly_callnoreturn" output="false" returntype="ObjectType.VOID" tooltip="%3Cdiv%20class=%22name%22%3E%3Cstrong%3ENome:%3C/strong%3E%3Cdiv%3EChamar%20Bloco%3C/div%3E%3C/div%3E%3Cdiv%20class=%22description%22%3E%3Cstrong%3EDescri%C3%A7%C3%A3o:%3C/strong%3E%3Cdiv%3EFun%C3%A7%C3%A3o%20para%20chamar%20bloco%20de%20programa%C3%A7%C3%A3o%3C/div%3E%3C/div%3E%3Cdiv%20class=%22params%22%3E%3Cstrong%3EParam%C3%AAtro:%3C/strong%3E%3Cdiv%3E%3Cspan%3E%20-%20Nome%20do%20Bloco%20:%20Texto%3C/span%3E%3Cbr%3E%3Cspan%3E%20-%20Par%C3%A2metros%20:%20Objeto%3C/span%3E%3Cbr%3E%3C/div%3E%3C/div%3E%3Cdiv%20class=%22link%22%3E%3Cstrong%3EAjuda:%3C/strong%3E%3Cdiv%20class=%22tooltip-link%22%3E%3Ca%20target=%22_blank%22%20href=%22https://docs.cronapp.io/display/CRON2/cronapi.util.callServerBlocklyNoReturn%22%3Ehttps://docs.cronapp.io/display/CRON2/cronapi.util.callServerBlocklyNoReturn%3C/a%3E%3C/div%3E%3C/div%3E" type="procedures_callblockly_callnoreturn">
-                    <mutation data="%7B%22name%22:%22Localizacao%22,%22class%22:%22blockly.Localizacao%22,%22function%22:%22Executar%22,%22oldName%22:%22Executar%22,%22params%22:%22%5B%5C%22coordenadas%5C%22%5D%22,%22type%22:%22java%22,%22namespace%22:%22blockly.Localizacao%22%7D" name="{{cronapi.util.callServerBlocklyNoReturn}}">
+                    <mutation data="%7B%22name%22:%22Localizacao%22,%22class%22:%22blockly.Localizacao%22,%22function%22:%22obter_endereco%22,%22oldName%22:%22obter_endereco%22,%22params%22:%22%5B%5C%22coordenadas%5C%22%5D%22,%22type%22:%22java%22,%22namespace%22:%22blockly.Localizacao%22%7D" name="{{cronapi.util.callServerBlocklyNoReturn}}">
                       <arg name="coordenadas"/>
                     </mutation>
                     <value name="ARG0">
@@ -106,7 +106,11 @@
       </block>
     </statement>
   </block>
-  <block colour="#a55b80" dependencyby="Anb:u5+^,0vLkL9QIqn5" id="Kgeg~W6M^?Wn?@TQvB(%" origintype="variables_get" output="true" tooltip="Retorna o valor desta variável." type="variables_get" x="908" y="593">
-    <field name="VAR">cord</field>
+  <block colour="#5ba58c" dependencyby="Anb:u5+^,0vLkL9QIqn5" id="qspo@8!{s@I7K~%,$kbR" origintype="text_print" output="false" tooltip="Imprime o texto, número ou valor especificado." type="text_print" x="293" y="608">
+    <value name="TEXT">
+      <shadow colour="#5ba593" dependencyby="Anb:u5+^,0vLkL9QIqn5" id="Zg$g7QA,|gT=S$_N{r:i" origintype="text" output="true" tooltip="function () { [native code] }" type="text">
+        <field name="TEXT">Pegou coordenadas!</field>
+      </shadow>
+    </value>
   </block>
 </blockly>

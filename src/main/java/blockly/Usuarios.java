@@ -21,19 +21,8 @@ public class Usuarios {
 			private Var retorno = Var.VAR_NULL;
 
 			public Var call() throws Exception {
-				retorno = cronapi.util.Operations
-						.getURLFromOthers(Var.valueOf("POST"), Var.valueOf("application/json"),
-								Var.valueOf("https://meupostofavorito.cronapp.io/api/cronapi/query/1iepiif3l3prk/"),
-								cronapi.object.Operations.newObject(Var.valueOf("app.entity.User"),
-										Var.valueOf("id", cronapi.util.Operations.generateUUID()),
-										Var.valueOf("email", Var.valueOf("tchutchuca@email.com\n   ")),
-										Var.valueOf("name", Var.valueOf("tchutchuca")),
-										Var.valueOf("login", Var.valueOf("tchutchuca")),
-										Var.valueOf("picture", Var.valueOf("")),
-										Var.valueOf("password",
-												Var.valueOf(
-														"$2a$10$LjzpM1Q3VoAtG2dTCCabNuW0/amVPjL3Iyvyi2Dj7NP.HngtzSewu"))),
-								Var.VAR_NULL);
+				retorno = cronapi.util.Operations.getURLFromOthers(Var.valueOf("POST"), Var.valueOf("application/json"),
+						Var.VAR_NULL, Var.VAR_NULL, Var.VAR_NULL);
 				System.out.println(retorno.getObjectAsString());
 				return retorno;
 			}

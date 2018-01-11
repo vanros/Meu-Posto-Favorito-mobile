@@ -4,12 +4,12 @@ window.blockly.js.blockly = window.blockly.js.blockly || {};
 window.blockly.js.blockly.Localizacao = window.blockly.js.blockly.Localizacao
 		|| {};
 
-var item, consultaEnd, consultaEnde, coordenadas, cord, param;
+var item, param, coordenadas, cord;
 
 /**
  * localizacao
  */
-window.blockly.js.blockly.Localizacao.Executar = function() {
+window.blockly.js.blockly.Localizacao.obter_coordenadas = function() {
 	window.alert('entrou no bloco');
 	this.cronapi.cordova.geolocation.getCurrentPosition(function(sender_item) {
 		item = sender_item;
@@ -21,6 +21,6 @@ window.blockly.js.blockly.Localizacao.Executar = function() {
 		item = sender_item;
 	}.bind(this));
 	param = String(coordenadas);
-	this.cronapi.util.callServerBlocklyNoReturn('blockly.Localizacao:Executar',
-			param);
+	this.cronapi.util.callServerBlocklyNoReturn(
+			'blockly.Localizacao:obter_endereco', param);
 }

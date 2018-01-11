@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?><blockly formTarget="src/main/mobileapp/www/views/logged/posto.view.html" resourceType="JAVA" ruleDescription="teste_iframe" ruleName="teste_iframe" ruleSynchronous="false" ruleTimeout="300" ruleType="I">
+  <metadata scale="1" scrollx="472.70947043342255" scrolly="-4" target="Anb:u5+^,0vLkL9QIqn5"/>
+  <block colour="#995ba5" id="Anb:u5+^,0vLkL9QIqn5" origintype="procedures_defreturn" output="false" tooltip="Cria uma função que possui um valor de retorno." type="procedures_defreturn" x="-350" y="130">
+    <field name="NAME">Executar</field>
+    <comment h="80" pinned="false" w="160">teste_iframe</comment>
+    <statement name="STACK">
+      <block colour="#934848" dependencyby="Anb:u5+^,0vLkL9QIqn5" id="!O+/%B$c6kaVu!6*s{};" multilayer="true" namespace="cronapi.screen.changeAttrValue" origintype="procedures_callnoreturn" output="false" returntype="ObjectType.VOID" tooltip="%3Cdiv%20class=%22name%22%3E%3Cstrong%3ENome:%3C/strong%3E%3Cdiv%3EDefinir%20valor%20do%20atributo%3C/div%3E%3C/div%3E%3Cdiv%20class=%22description%22%3E%3Cstrong%3EDescri%C3%A7%C3%A3o:%3C/strong%3E%3Cdiv%3EFun%C3%A7%C3%A3o%20que%20define%20o%20valor%20do%20atributo%20de%20um%20elemento%3C/div%3E%3C/div%3E%3Cdiv%20class=%22params%22%3E%3Cstrong%3EParam%C3%AAtro:%3C/strong%3E%3Cdiv%3E%3Cspan%3E%20-%20Obter%20identificador%20:%20Objeto%3C/span%3E%3Cdiv%3E%20Identificador%20(id)%20a%20ser%20obtido%20do%20Formul%C3%A1rio%20selecionado%3C/div%3E%3Cspan%3E%20-%20Nome%20do%20atributo%20:%20Texto%3C/span%3E%3Cdiv%3E%20Nome%20do%20atributo%20contido%20no%20Identificador.%20Exemplo:%20%20src='teste'%20retorna%20src%3C/div%3E%3Cspan%3E%20-%20Valor%20do%20atributo%20:%20Texto%3C/span%3E%3Cdiv%3E%20Valor%20do%20atributo%20contido%20no%20Identificador.%20Exemplo:%20%20src='teste'%20retorna%20teste%3C/div%3E%3C/div%3E%3C/div%3E%3Cdiv%20class=%22link%22%3E%3Cstrong%3EAjuda:%3C/strong%3E%3Cdiv%20class=%22tooltip-link%22%3E%3Ca%20target=%22_blank%22%20href=%22https://docs.cronapp.io/display/CRON2/cronapi.screen.changeAttrValue%22%3Ehttps://docs.cronapp.io/display/CRON2/cronapi.screen.changeAttrValue%3C/a%3E%3C/div%3E%3C/div%3E" type="procedures_callnoreturn">
+        <mutation name="{{cronapi.screen.changeAttrValue}}">
+          <arg cronapi-type="ObjectType.OBJECT" name="Obter identificador"/>
+          <arg cronapi-type="ObjectType.STRING" name="Nome do atributo"/>
+          <arg cronapi-type="ObjectType.STRING" name="Valor do atributo"/>
+        </mutation>
+        <value name="ARG0">
+          <block colour="#934848" id="zL9bnb*zxJh^;=CCWQf[" origintype="ids_from_screen" output="true" type="ids_from_screen">
+            <field name="SELECT">mapa</field>
+          </block>
+        </value>
+        <value name="ARG1">
+          <shadow colour="#5ba593" id="eoc;,0LAK0[jKLsKRRRy" origintype="text" output="true" tooltip="function () { [native code] }" type="text">
+            <field name="TEXT">src</field>
+          </shadow>
+        </value>
+        <value name="ARG2">
+          <shadow colour="#5ba593" id="R~!UIQzjKCq,M)b,eMJO" origintype="text" output="true" tooltip="function () { [native code] }" type="text">
+            <field name="TEXT"/>
+          </shadow>
+          <block colour="#5ba58c" dependencyby="Anb:u5+^,0vLkL9QIqn5" id="$J~7m7Z-P1zul0h=r9H}" origintype="text_join" output="true" tooltip="Criar um pedaço de texto juntando qualquer número de itens." type="text_join">
+            <mutation items="3"/>
+            <value name="ADD0">
+              <block colour="#5ba593" dependencyby="Anb:u5+^,0vLkL9QIqn5" id="Z7m:dFwP47o]Dp;s?]Uo" origintype="text" output="true" tooltip="function () { [native code] }" type="text">
+                <field name="TEXT">https://www.google.com/maps/embed/v1/place?key=</field>
+              </block>
+            </value>
+            <value name="ADD1">
+              <block colour="#5ba593" dependencyby="Anb:u5+^,0vLkL9QIqn5" id="c~)p,^akOJ#hIv6c5@nH" origintype="text" output="true" tooltip="function () { [native code] }" type="text">
+                <field name="TEXT">AIzaSyDOrc1IXPtUXbqAEv6zCfZN7545wg4Bn3o</field>
+              </block>
+            </value>
+            <value name="ADD2">
+              <block colour="#5ba593" dependencyby="Anb:u5+^,0vLkL9QIqn5" id="b0!@Ca/YsK_p8Gvo0i(E" origintype="text" output="true" tooltip="function () { [native code] }" type="text">
+                <field name="TEXT">&amp;q=Av. Padre Antônio Tomás+299+Aldeota+Fortaleza+Brazil</field>
+              </block>
+            </value>
+          </block>
+        </value>
+      </block>
+    </statement>
+  </block>
+</blockly>
